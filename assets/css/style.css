@@ -5,23 +5,26 @@
 /*===== VARIABLES CSS =====*/
 :root {
     --header-height: 3rem;
-    --font-semi: 600;
 }
 
 /*===== Colores =====*/
 :root {
     --first-color: #4f81f3;
-    --second-color: #ffffff;
+    --second-color: #0E2431;
     --third-color: #ffffff;
 }
 
-/*===== Fuente y tipografia =====*/
+/*===== Font and Typography =====*/
 :root {
     --body-font: 'Poppins', sans-serif;
     --big-font-size: 2rem;
     --super-big-font-size: 5rem;
     --h2-font-size: 1.25rem;
     --normal-font-size: 0.938rem;
+
+    --font-regular: 500;
+    --font-semi: 600;
+    --font-bold: 800;
 }
 
 @media screen and (min-width: 768px) {
@@ -50,7 +53,7 @@
     --z-fixed: 100;
 }
 
-/*===== BASE =====*/
+/*===== BASE UTILITY ( RESET THE BASE LAYOUT ) =====*/
 *,
 ::before,
 ::after {
@@ -66,7 +69,7 @@ body {
     margin: var(--header-height) 0 0 0;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    color: #fff;
+    color: var(--third-color);
     background-color: #010101;
 }
 
@@ -105,13 +108,7 @@ iframe {
     height: auto;
 }
 
-
-textarea {
-    font-family: var(--body-font);
-    resize: none;
-}
-
-::selection{
+::selection { /* Text Selection when user blocked or mark on text  */
     background-color: var(--third-color);
     color: black;
     opacity: 100;
@@ -119,19 +116,22 @@ textarea {
 
 /*==== COSTUM SCROLL BAR  ====*/
 body::-webkit-scrollbar {
-    width: 5px;               /* width of the entire scrollbar */
-  }
-  
-  body::-webkit-scrollbar-track {
-    background: black;        /* color of the tracking area */
-  }
-  
-  body::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.247);    /* color of the scroll thumb */
-  }
+    width: 5px;
+    /* Width of the entire scrollbar */
+}
 
-  /*==== SCROLL TOP =====*/
-.scrolltop{
+body::-webkit-scrollbar-track {
+    background: black;
+    /* Color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.247);
+    /* Color of the scroll thumb */
+}
+
+/*==== BUTTON SCROLL TO THE TOP =====*/
+.scrolltop {
     position: fixed;
     right: 1rem;
     bottom: -20%;
@@ -150,12 +150,12 @@ body::-webkit-scrollbar {
     background-color: rgba(255, 255, 255, 0.767);
 }
 
-.scrolltop__icon{
+.scrolltop__icon {
     font-size: 1.8rem;
     color: black;
 }
 
-.show-scroll{
+.show-scroll {
     visibility: visible;
     bottom: 1.5rem;
 }
@@ -188,8 +188,8 @@ body::-webkit-scrollbar {
 }
 
 /*===== CHANCE THE BACKGROUND HEADER  =====*/
-.scroll-header{
-      backdrop-filter: blur(4px);
+.scroll-header {
+    backdrop-filter: blur(4px);
     border-bottom: 1px solid rgba(212, 212, 212, 0.089);
 }
 
@@ -225,59 +225,13 @@ body::-webkit-scrollbar {
 
 
 
-
-@media (max-width: 768px) and (min-width:576px) {
-    .nav__menu {
-        position: fixed;
-        top: var(--header-height);
-        right: -100%;
-        width: 80%;
-        height: 100vh;
-        padding: 2rem;
-        background-color: var(--third-color);
-        transition: .5s;
-    }
-
-    .nav__link {
-        position: relative;
-        color: #0E2431 !important;
-    }
-
-
-
-    .work__container {
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        column-gap: 2rem;
-    }
-
-    .bg-2 {
-        height: 100% !important;
-    }
-
-    /* ===== CONTACT =====*/
-
-    .skills__container img {
-        display: none !important;
-    }
-
-    /* ===== CONTACT =====*/
-
-    .contact__container {
-        display: grid !important;
-        grid-gap: 23px !important;
-    }
-}
-
-
 .nav__item {
     margin-bottom: var(--mb-4);
 }
 
-
 .nav__link {
     position: relative;
-    color: #fff ;
+    color: var(--third-color);
 }
 
 .nav__link:hover {
@@ -295,13 +249,13 @@ body::-webkit-scrollbar {
     animation: underline .5s ease-out;
 }
 
-
-@keyframes underline{
-    0%{
+/*===== ANIMATE THE NAVBAR LINK ( KEYFRAME ) =====*/
+@keyframes underline {
+    0% {
         width: 0;
     }
 
-    100%{
+    100% {
         width: 100%;
     }
 }
@@ -345,12 +299,9 @@ body::-webkit-scrollbar {
     align-self: center;
 }
 
-.home p{
-    text-transform:capitalize;
+.home p {
+    text-transform: capitalize;
 }
-
-
-
 .home__title {
     font-size: var(--super-big-font-size);
     margin-bottom: var(--mb-5);
@@ -363,6 +314,7 @@ body::-webkit-scrollbar {
     animation: bg 4s ease-out;
 }
 
+/*===== ANIMTION TEXT ENTRACE ( GRADIENT TEXT ) =====*/
 @keyframes bg {
     0% {
         opacity: 0;
@@ -400,11 +352,11 @@ body::-webkit-scrollbar {
 
 
 
-/*BUTTONS*/
+/*BUTTONS SETTINGS*/
 .button {
     display: inline-block;
     background-color: var(--first-color);
-    color: #fff;
+    color: var(--third-color);
     padding: .75rem 2.5rem;
     font-weight: var(--font-semi);
     border-radius: .5rem;
@@ -431,7 +383,7 @@ body::-webkit-scrollbar {
 }
 
 /* ===== ABOUT =====*/
-.about{
+.about {
     margin-top: 5rem;
 }
 
@@ -448,11 +400,10 @@ body::-webkit-scrollbar {
 
 
 .about__subtitle {
-
     margin-bottom: var(--mb-2);
 }
 
-.about a{
+.about a {
     color: var(--third-color);
     text-decoration: underline;
 }
@@ -461,16 +412,14 @@ body::-webkit-scrollbar {
     justify-self: center;
 }
 
-
 .about__img img {
-    
     width: 500px;
     border-radius: 1.5rem;
+    filter: contrast(0.81) saturate(1.76) ;
 }
 
 /* ===== SKILLS =====*/
-
-.skills{
+.skills {
     margin-top: 5rem;
 }
 
@@ -480,7 +429,6 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: center;
 }
-
 
 .html {
     color: #ff6262 !important;
@@ -495,13 +443,12 @@ body::-webkit-scrollbar {
 }
 
 .ux {
-    color: #fff !important;
+    color: var(--third-color) !important;
 }
 
-.swift{
+.swift {
     color: #ff6262 !important;
 }
-
 
 .skills__subtitle {
     margin-bottom: var(--mb-2);
@@ -545,6 +492,7 @@ body::-webkit-scrollbar {
     z-index: var(--z-back);
 }
 
+/*===== TO SETUP DEPENDING YOUR SKILL  =====*/
 .skills__html {
     width: 95%;
 }
@@ -565,13 +513,13 @@ body::-webkit-scrollbar {
     width: 30%;
 }
 
-.skills__container img{
+.skills__container img {
     width: 500px;
     border-radius: .5rem;
 }
 
 
-/* ===== WORK =====*/
+/*===== WORK =====*/
 .work__container {
     row-gap: 2rem;
     padding-top: 2rem;
@@ -583,14 +531,12 @@ body::-webkit-scrollbar {
     background-color: #111111;
     height: 50pc;
     margin-top: 10rem;
-    
 }
 
 .work__img {
     box-shadow: 0 4px 25px rgba(14, 36, 49, .15);
     border-radius: .5rem;
     overflow: hidden;
-
 }
 
 .work__img img {
@@ -618,8 +564,6 @@ body::-webkit-scrollbar {
     background-color: #406bce8f;
 }
 
-
-
 .work__link-name {
     text-align: center;
     color: white;
@@ -644,8 +588,8 @@ body::-webkit-scrollbar {
     margin-bottom: var(--mb-2);
 }
 
-.contact-info iframe{
-    width: 500px ;
+.contact-info iframe {
+    width: 500px;
     height: 500px;
     border-radius: 1px;
 }
@@ -659,16 +603,12 @@ body::-webkit-scrollbar {
     margin-top: 5rem;
 }
 
-.footer__container{
+.footer__container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        row-gap: 2rem;
+    row-gap: 2rem;
 
 }
-
-
-
-
 
 .footer__title {
     font-size: 20px;
@@ -676,7 +616,7 @@ body::-webkit-scrollbar {
     color: var(--first-color);
 }
 
-.footer__description{
+.footer__description {
     display: block;
     font-size: 20px;
     margin: .25rem 0 var(--mb-3);
@@ -689,7 +629,7 @@ body::-webkit-scrollbar {
     margin: auto;
 }
 
-.footer__link{
+.footer__link {
     font-size: var(--normal-font-size);
     color: var(--third-color);
     font-weight: 200;
@@ -703,19 +643,19 @@ body::-webkit-scrollbar {
     width: 100%;
     height: 0.13rem;
     left: 0;
-    top: 2.1rem;
+    top: 2.5rem;
     background-color: var(--third-color);
-    animation: underline .5s ease-out;
+    animation: underline .5s ease-out; 
 }
 
 .footer__icon {
     font-size: 1.5rem;
-    color: #fff;
+    color: var(--third-color);
     margin: 0;
     padding-right: 12px;
 }
 
-.footer__copy{
+.footer__copy {
     text-align: center;
     font-size: var(--normal-font-size);
     margin-top: 3.5rem;
@@ -723,15 +663,27 @@ body::-webkit-scrollbar {
     border-top: 1px solid rgba(212, 212, 212, 0.24);
 }
 
-.footer__info-box{
+.footer__info-box {
     font-weight: 200;
 }
 
-.footer__info{
+.footer__info {
     opacity: 55%;
 }
 
 /* ===== MEDIA QUERIES=====*/
+@media screen and (min-width: 1024px) {
+    .bd-grid {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home__img {
+        right: 10%;
+    }
+
+}
+
 @media screen and (min-width: 768px) {
     body {
         margin: 0;
@@ -770,7 +722,7 @@ body::-webkit-scrollbar {
     }
 
     .nav__link {
-        color: var(--second-color);
+        color: var(--third-color);
     }
 
     .home p {
@@ -830,19 +782,67 @@ body::-webkit-scrollbar {
     }
 }
 
-@media screen and (min-width: 1024px) {
-    .bd-grid {
-        margin-left: auto;
-        margin-right: auto;
+@media (max-width: 768px) and (min-width:576px) {
+    .nav__menu {
+        position: fixed;
+        top: var(--header-height);
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        padding: 2rem;
+        background-color: var(--third-color);
+        transition: .5s;
     }
 
-    .home__img {
-        right: 10%;
+
+    /*=== Show menu ===*/
+    .show {
+        right: 0;
     }
 
+
+    .nav__link {
+        position: relative;
+        color: #0E2431 !important;
+    }
+
+    .nav__link:hover {
+        position: relative;
+    }
+
+    .nav__link:hover::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 0.18rem;
+        left: 0;
+        top: 2rem;
+        background-color: var(--first-color);
+    }
+
+    .work__container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+
+    .bg-2 {
+        height: 100% !important;
+    }
+
+    /* ===== CONTACT =====*/
+
+    .skills__container img {
+        display: none !important;
+    }
+
+    /* ===== CONTACT =====*/
+
+    .contact__container {
+        display: grid !important;
+        grid-gap: 23px !important;
+    }
 }
-
-
 
 @media (max-width: 576px) and (min-width: 360px) {
     .nav__menu {
@@ -946,14 +946,13 @@ body::-webkit-scrollbar {
         height: 100%;
     }
 
-    /* ===== CONTACT =====*/
+    /* ===== SKILLS =====*/
 
     .skills__container img {
         display: none;
     }
 
     /* ===== CONTACT =====*/
-
     .contact__container {
         display: grid;
         grid-gap: 23px;
@@ -963,7 +962,7 @@ body::-webkit-scrollbar {
         width: 100%;
     }
 
-    .contact iframe{
+    .contact iframe {
         width: 100%;
         height: 400px;
     }
@@ -976,7 +975,7 @@ body::-webkit-scrollbar {
         max-width: 100%;
     }
 
-
+    /* ===== NAVBAR =====*/
     .nav__menu {
         position: fixed;
         top: var(--header-height);
@@ -1073,15 +1072,12 @@ body::-webkit-scrollbar {
         width: 100%;
     }
 
-
-    /* ===== CONTACT =====*/
-
-    .contact__container {
-        display: grid;
-        grid-gap: 23px;
+    .skills__container img {
+        display: none;
     }
 
 
+     /* ===== WORK SECTION  =====*/
     .work__container {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(2, 1fr);
@@ -1096,13 +1092,16 @@ body::-webkit-scrollbar {
         width: 100%;
     }
 
-    .skills__container img {
-        display: none;
-    }
-
-
-    .contact iframe{
+    
+    /* ===== CONTACT =====*/
+    .contact iframe {
         width: 100%;
         height: 200px;
     }
+
+    .contact__container {
+        display: grid;
+        grid-gap: 23px;
+    }
+
 }
